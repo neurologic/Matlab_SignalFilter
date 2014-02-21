@@ -1,5 +1,8 @@
-function [data]=HighpassGeneral(data,basedata,cutoff,fs)
+function [data]=HighpassGeneral(data,basedata,fs)
 %data must be in format rows=trials columns=data
 % data=BaselineGeneral(data,baselinewin,basedata);
 % shouldn't need to baseline because high pass removes DC offset
-data=fftFilter(data',fs,cutoff,2)';
+
+%cutoff frequency hard-coded at 100 here cause i have never used anything
+%different ever
+data=fftFilter(data',fs,100,2)';
